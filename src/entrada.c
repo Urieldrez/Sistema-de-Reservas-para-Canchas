@@ -16,3 +16,15 @@ int leerEntero(void) {
     }
     return -1;
 }
+
+int leerEnteroEnRango(const char *prompt, int min, int max) {
+    int valor;
+    while (1) {
+        printf("%s", prompt);
+        valor = leerEntero();
+        if (valor >= min && valor <= max) {
+            return valor;
+        }
+        printf("Ingresa un numero entre %d y %d.\n", min, max);
+    }
+}

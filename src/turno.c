@@ -3,7 +3,7 @@
 
 /* Inicio y fin (exclusivo) de cada franja. La hora 24 representa las 00hs. */
 #define MANIANA_INI 9
-#define MANIANA_FIN 12
+#define MANIANA_FIN 13
 #define TARDE_INI   14
 #define TARDE_FIN   18
 #define NOCHE_INI   19
