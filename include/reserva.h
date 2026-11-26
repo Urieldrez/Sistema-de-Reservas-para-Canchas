@@ -10,9 +10,11 @@
 typedef struct {
     int idReserva;
     char deporte[25];          /* "Futbol" o "Hockey" */
-    char dia[20];              /* Ej: "Lunes 16/11/2026" */
-    char hora[10];             /* Ej: "18:00" */
-    int dni;                   /* DNI del cliente: se busca en la lista de clientes */
+    char fecha[32];            /* Ej: "16/11/2026" (para mostrar) */
+    int fechaClave;            /* Ej: 20261116 (para ordenar y comparar) */
+    char diaSemana[12];        /* Ej: "Lunes" */
+    int horaInicio;            /* Ej: 9, 10, 11... */
+    int dni;                   /* DNI del cliente */
     char metodoPago[20];       /* "Efectivo", "Transferencia", "Tarjeta" */
 } tReserva;
 
@@ -34,5 +36,11 @@ tReserva *buscarReserva(tArbol *pArbol, int pId);
 bool existeReserva(tArbol *pArbol, int pId);
 bool eliminarReserva(tArbol **pArbol, int pId);
 void liberarArbol(tArbol **pArbol);
+
+/* --- Disponibilidad y listado ordenado --- */
+bool turnoOcupado(tArbol *pArbol, int pFechaClave, int pHora);
+int contarReservas(tArbol *pArbol);
+int recolectarReservas(tArbol *pArbol, tReserva *arreglo, int indice);
+void visualizarOrdenadoPorFecha(tArbol *pArbol);
 
 #endif
